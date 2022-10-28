@@ -56,7 +56,8 @@ router.get('/earthquakes', async function (req, res) {
           await client.index({
             index: 'earthquakes',
             id: results.id,
-            body: earthquakeObject
+            body: earthquakeObject,
+            pipeline: "earthquake_data_pipeline"
           })
         )
       );
